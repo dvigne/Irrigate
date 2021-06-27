@@ -2,3 +2,5 @@
 .clang_complete
 .gcc-flags.json
 env
+data
+node_modules
