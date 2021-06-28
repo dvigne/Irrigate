@@ -15,6 +15,8 @@ AsyncDNSServer dnsServer;
 AsyncWebServer webServer(PORT);
 TemplateEngine engine;
 _errorFlags errorFlag = NO_ERRORS;
+DynamicJsonDocument zoneFile(2048);
+
 
 void setFlag(_errorFlags flag) {
   errorFlag = flag;
@@ -24,24 +26,38 @@ _errorFlags getErrorFlags() {
   return errorFlag;
 }
 
-void defaultAlert() {
-  for (size_t i = 0; i < 2; i++) {
-    digitalWrite(LED_BUILTIN, HIGH);
-    digitalWrite(SPKR, HIGH);
-    delay(250);
-    digitalWrite(LED_BUILTIN, LOW);
-    digitalWrite(SPKR, LOW);
+void idle() {
+  if (timeStatus() != timeSet) {
+    errorFlag = TIME_NOT_SET;
   }
 }
 
-void handleError() {
+void runZones() {
+  Serial.println("Running Zones");
+}
+
+void defaultAlert() {
+  digitalWrite(STATUS_LED, HIGH);
+  digitalWrite(SPKR, HIGH);
+  delay(250);
+  digitalWrite(STATUS_LED, LOW);
+  digitalWrite(SPKR, LOW);
+  delay(250);
+}
+
+bool handleError() {
   switch(errorFlag) {
     case NO_ERRORS:
-      return;
+      digitalWrite(STATUS_LED, HIGH);
+      return false;
     case TIME_NOT_SET:
       defaultAlert();
       break;
+    case JSON_PARSING_ERROR:
+      defaultAlert();
+      break;
   }
+  return true;
 }
 
 
@@ -59,9 +75,18 @@ void setup() {
   dnsServer.setErrorReplyCode(AsyncDNSReplyCode::ServerFailure);
   dnsServer.start(53, DOMAIN_NAME, IPAddress(192,168,4,1));
 
-  File zoneFile = LittleFS.open(ZONEFILE, "r+");
-  String zoneConfiguration = zoneFile.readString();
-  Serial.println(zoneConfiguration);
+  File jsonFile = LittleFS.open(ZONEFILE, "r+");
+  DeserializationError err = deserializeJson(zoneFile, jsonFile.readString());
+  if (err) {
+    setFlag(JSON_PARSING_ERROR);
+    Serial.println(err.c_str());
+  }
+
+  Serial.println(zoneFile.size());
+  JsonObject testObj = zoneFile.as<JsonObject>();
+  String obj;
+  serializeJson(zoneFile, obj);
+  Serial.println(obj);
 
   // Register Routes
   webServer.serveStatic("/css", LittleFS, "/css");
@@ -79,12 +104,17 @@ void setup() {
 
   webServer.begin();
 
-  // Turn on onboard LED for status
+  // Turn on onboard LEDs for status
   pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(STATUS_LED, OUTPUT);
   digitalWrite(LED_BUILTIN, !STATUS);
-
+  digitalWrite(STATUS_LED, HIGH);
 }
 
 void loop() {
-  //
+  idle();
+  if(handleError()) {
+    return;
+  }
+  runZones();
 }
