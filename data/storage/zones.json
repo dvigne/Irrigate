@@ -1,0 +1,26 @@
+{
+	"1": {
+		"enabled": true,
+		"times": [
+			900
+		]
+	},
+	"2": {
+		"enabled": true,
+		"times": [
+			900
+		]
+	},
+	"3": {
+		"enabled": true,
+		"times": [
+			900
+		]
+	},
+	"4": {
+		"enabled": true,
+		"times": [
+			900
+		]
+	}
+}

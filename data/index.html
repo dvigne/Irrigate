@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html data-theme="forest" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Irrigate.io Dashboard</title>
+
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="css/index.css"/>
+  </head>
+  <body>
+    <div class="w-full">
+      <div class="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box">
+        <div class="flex-none px-2 mx-2">
+          <span class="text-lg font-bold">
+            Irrigate.io
+          </span>
+        </div>
+        <div class="flex-1 px-2 mx-2">
+          <div class="items-stretch lg:flex">
+            <a class="btn btn-ghost btn-sm rounded-btn">
+              Home
+            </a>
+            <a class="btn btn-ghost btn-sm rounded-btn">
+              Zones
+            </a>
+            <a class="btn btn-ghost btn-sm rounded-btn">
+              Settings
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-full pt-1">
+      <div class="stats shadow w-full">
+        <div class="stat place-items-center place-content-center">
+          <div class="stat-figure text-primary h-10 w-10">
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="seedling" class="svg-inline--fa fa-seedling fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M64 96H0c0 123.7 100.3 224 224 224v144c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V320C288 196.3 187.7 96 64 96zm384-64c-84.2 0-157.4 46.5-195.7 115.2 27.7 30.2 48.2 66.9 59 107.6C424 243.1 512 147.9 512 32h-64z"></path></svg>
+          </div>
+          <div class="stat-title">Status</div>
+          <div class="stat-value text-primary">Everything is Good</div>
+          <div class="stat-desc">No Issues Reported</div>
+        </div>
+        <div class="stat place-items-center place-content-center">
+          <div class="stat-figure text-info h-10 w-10">
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="faucet" class="svg-inline--fa fa-faucet fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M352,256H313.39c-15.71-13.44-35.46-23.07-57.39-28V180.44l-32-3.38-32,3.38V228c-21.93,5-41.68,14.6-57.39,28H16A16,16,0,0,0,0,272v96a16,16,0,0,0,16,16h92.79C129.38,421.73,173,448,224,448s94.62-26.27,115.21-64H352a32,32,0,0,1,32,32,32,32,0,0,0,32,32h64a32,32,0,0,0,32-32A160,160,0,0,0,352,256ZM81.59,159.91l142.41-15,142.41,15c9.42,1,17.59-6.81,17.59-16.8V112.89c0-10-8.17-17.8-17.59-16.81L256,107.74V80a16,16,0,0,0-16-16H208a16,16,0,0,0-16,16v27.74L81.59,96.08C72.17,95.09,64,102.9,64,112.89v30.22C64,153.1,72.17,160.91,81.59,159.91Z"></path></svg>
+          </div>
+          <div class="stat-title">Next Scheduled Water</div>
+          <div class="stat-value text-info">Zone 4 at 9:00 pm</div>
+          <div class="stat-desc">30 Minutes</div>
+        </div>
+      </div>
+    </div>
+    <div class="w-full mt-10">
+      <div class="grid-rows-2 grid md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1 text-center">
+        <div class="h-32 mt-5 bg-primary w-9/12 rounded mx-auto">
+          <div class="mt-9">
+            <p class="text-xl font-bold">Zone 1</p>
+            <p class="text-gray-700">Enabled</p>
+          </div>
+        </div>
+        <div class="h-32 mt-5 bg-primary w-9/12 rounded mx-auto">
+          <div class="mt-9">
+            <p class="text-xl font-bold">Zone 2</p>
+            <p class="text-gray-700">Enabled</p>
+          </div>
+        </div>
+        <div class="h-32 mt-5 bg-primary w-9/12 rounded mx-auto">
+          <div class="mt-9">
+            <p class="text-xl font-bold">Zone 3</p>
+            <p class="text-gray-700">Enabled</p>
+          </div>
+        </div>
+        <div class="h-32 mt-5 bg-primary w-9/12 rounded mx-auto">
+          <div class="mt-9">
+            <p class="text-xl font-bold">Zone 4</p>
+            <p class="text-gray-700">Enabled</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
