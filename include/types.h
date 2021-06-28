@@ -1,3 +1,9 @@
 #pragma once
 
-enum _errorFlags { NO_ERRORS, TIME_NOT_SET };
+/////////////////////////////////////////////////
+/// Global Defines
+/////////////////////////////////////////////////
+
+#define STATUS_LED 16
+
+enum _errorFlags { NO_ERRORS, TIME_NOT_SET, JSON_PARSING_ERROR };
