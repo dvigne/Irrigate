@@ -7,6 +7,8 @@ module.exports = {
   ],
   safelist: [
     /data-theme$/,
+    'text-primary',
+    'text-warning',
   ]
   },
   darkMode: false, // or 'media' or 'class'
