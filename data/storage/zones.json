@@ -1,26 +1,48 @@
 {
-	"1": {
-		"enabled": true,
-		"times": [
-			900
-		]
-	},
-	"2": {
-		"enabled": true,
-		"times": [
-			900
-		]
-	},
-	"3": {
-		"enabled": true,
-		"times": [
-			900
-		]
-	},
-	"4": {
-		"enabled": true,
-		"times": [
-			900
-		]
-	}
+	"zones": [
+		{
+			"name" : "Zone 1",
+			"enabled": true,
+			"times": [
+				[
+					9,
+					30,
+					[false,false,false,false,false,false,false]
+				]
+			]
+		},
+		{
+			"name" : "Zone 2",
+			"enabled": true,
+			"times": [
+				[
+					9,
+					30,
+					[false,false,false,false,false,false,false]
+				]
+			]
+		},
+		{
+			"name" : "Zone 3",
+			"enabled": true,
+			"times": [
+				[
+					9,
+					30,
+					[false,false,false,false,false,false,false]
+				]
+			]
+		},
+		{
+			"name" : "Zone 4",
+			"enabled": true,
+			"times": [
+				[
+					9,
+					30,
+					[false,false,false,false,false,false,false]
+				]
+			]
+		}
+	]
 }
