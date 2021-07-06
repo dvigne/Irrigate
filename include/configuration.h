@@ -7,6 +7,8 @@
 // Turn Status LED On?
 #define STATUS true
 
+// Number of Zones
+#define NUM_ZONES 4
 
 /////////////////////////////////////////////////
 /// Wifi Configuration
@@ -44,12 +46,7 @@
 /////////////////////////////////////////////////
 
 // Pins D0-D4 Used for Zones
-enum ZONE {
-  ZONE_1 = 16,
-  ZONE_2 = 5,
-  ZONE_3 = 4,
-  ZONE_4 = 0
-};
+const uint8_t ZONES[NUM_ZONES] = { 14, 12, 13, 15 }; // Zone 1, Zone 2, Zone 3, Zone 4
 
 // Buzzer Pin
-#define SPKR 14
+#define SPKR 0
