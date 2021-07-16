@@ -66,4 +66,6 @@ void loop() {
     return;
   }
   ZoneManager::idle();
+
+  delay(1000);
 }
